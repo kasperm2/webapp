@@ -18,7 +18,7 @@ function showPage(pageId) {
 
 // sets active tabbar/ menu item
 function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".tabbar a");
+  let pages = document.querySelectorAll(".tabbar2 a");
   for (let page of pages) {
     if (`#${pageId}` === page.getAttribute("href")) {
       page.classList.add("active");
@@ -79,7 +79,7 @@ const ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 // Listen on authentication state change
 firebase.auth().onAuthStateChanged(function(user) {
-  let tabbar = document.querySelector('#tabbar');
+  let tabbar = document.querySelector('#tabbar2');
   console.log(user);
   if (user) { // if user exists and is authenticated
     setDefaultPage();
