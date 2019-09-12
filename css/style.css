@@ -21,10 +21,8 @@ body {
   background-color: #000;
 }
 
-h1 {
-  font-size: 2em;
-  font-weight: 300;
-  letter-spacing: 3px;
+h1, h2, h3, h4, h5, h6, p{
+  font-family: 'montserrat';
 }
 
 .green{
@@ -159,26 +157,53 @@ nav {
 }
 
 .card.small {
-  left: 15%;
+  left: 5%;
   right: 15%;
   height: 375px;
   width: 70%;
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 .headermain h2{
   font-size: 20px;
   margin: 0px;
+  font-family: 'swister';
 }
 
 .headermain h1{
   margin: 0;
+  font-size: 22px;
 }
 
 .headermain{
   padding: 15px 0 0 20px;
+  color: #fff;
 }
 
+.radio-buttons-7{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ width: 30%;
+ padding: 15px 0 ;
+}
+
+#circle1, #circle2, #circle3, #circle4, #circle5, #circle6, #circle7{
+  border-radius: 25px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #fff;
+}
+
+#circle1{
+  background-color: #fff;
+}
+
+#full-width2{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 
 
