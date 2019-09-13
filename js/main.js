@@ -52,13 +52,13 @@ function showLoader(show) {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCr9783mNpQFd0rbxsz76boqAvcB7g6Jyk",
-  authDomain: "niels-hh.firebaseapp.com",
-  databaseURL: "https://niels-hh.firebaseio.com",
-  projectId: "niels-hh",
-  storageBucket: "niels-hh.appspot.com",
-  messagingSenderId: "123409531330",
-  appId: "1:123409531330:web:84e712137cf12b4f19165b"
+  apiKey: "AIzaSyD12x3NRaz7apxsiO4Aaro56Iqt0tAJcjg",
+  authDomain: "web-applikation-2d72a.firebaseapp.com",
+  databaseURL: "https://web-applikation-2d72a.firebaseio.com",
+  projectId: "web-applikation-2d72a",
+  storageBucket: "web-applikation-2d72a.appspot.com",
+  messagingSenderId: "618467941437",
+  appId: "1:618467941437:web:55e26fce9ee0c50ce75e54"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -128,7 +128,8 @@ var instance = M.Carousel.init({
    var instances = M.FormSelect.init(elems);
  });
 
-// ------- her begynder Indkøbs funktionen -------- //
+
+ // ------- her begynder Indkøbs funktionen -------- //
 // watch the database ref for changes
 vareRef.onSnapshot(function(snapshotData) {
   let indkob = snapshotData.docs;
