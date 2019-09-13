@@ -117,3 +117,11 @@ var instance = M.Carousel.init({
   fullWidth: true,
   indicators: true
  });
+
+
+ // Materilize dropodown
+
+ document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('select');
+   var instances = M.FormSelect.init(elems);
+ });

@@ -31,7 +31,6 @@ h1, h2, h3, h4, h5, h6, p{
 
 /* ---------- topbar styling ---------- */
 .topbar {
-  background-color: var(--green);
   color: var(--text-color-light);
   padding: 13.5px;
   text-transform: uppercase;
@@ -251,6 +250,135 @@ nav {
 .mdl-button--raised.mdl-button--colored, .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:hover{
   border-radius: 25px !important;
 }
+
+/* ---------- Opret madplan ---------- */
+
+#opret, #opret2{
+  background-color: #FFF;
+}
+
+#headerweek{
+  color: #000;
+  padding: 20px 0 0 0;
+}
+
+#todaysdate{
+  font-size: 15px;
+  padding: 15px 0 0 0;
+}
+
+#headerweek h2{
+  font-size: 20px;
+  margin: 0px;
+  font-family: 'swister';
+}
+
+#headerweek h1{
+  margin: 0;
+  font-size: 22px;
+}
+
+.mainweek-wrapper{
+  padding: 0 20px;
+}
+
+#food-input, #guests{
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 35px;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+  border-bottom: var(--green);
+  box-shadow: 0 1px 0 0 var(--green);
+}
+
+.select-wrapper input.select-dropdown:focus{
+  border-bottom: 1px solid var(--green);
+}
+
+.dropdown-users{
+  width: 60%;
+  color: #757575;
+}
+
+.select-dropdown{
+  color: #757575;
+}
+
+#guests-place{
+  width: 35%;
+  padding-left: 15px;
+}
+
+#placement2{
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+}
+
+.input-field.col label{
+  left: 0;
+}
+
+#commentary-input{
+  font-size: 10px;
+  height: 35px;
+  border-left-width: 0px !important;
+  border-right-width: 0px !important;
+  border-top-width: 0px !important;
+
+}
+
+#write-comment{
+  padding-top: 15px;
+}
+
+#link-to{
+  padding-top: 15px;
+}
+
+#recipe-link{
+  font-size: 16px;
+  height: 35px;
+}
+
+#upload-recipe-image{
+  font-size: 16px;
+  height: 35px;
+}
+
+.btn span{
+  line-height: 0px;
+}
+
+.btn span i{
+  padding-right: 5px;
+  line-height: 0;
+}
+
+.btn, .btn-large, .btn-small{
+  background-color: var(--green);
+}
+
+.upload-file6 {
+  padding-top: 15px;
+}
+
+.button-align{
+  border-radius: 8px;
+  padding: 0 20px;
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus{
+  background-color: var(--green);
+}
+
+
+
+
+
+
 
 
 /* ---------- animations ---------- */

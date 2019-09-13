@@ -20,15 +20,15 @@
   <!-- tabbar navigation -->
   <nav id="tabbar2" class="tabbar2 hide">
     <a href="#home" onclick="showPage('home')">
-      <img src="images/diet.svg" alt="madplan">
+      <img src="images/liste.svg" alt="madplan">
       <p>Madplan</p>
     </a>
     <a href="#about" onclick="showPage('about')">
-      <img src="images/indkobsliste.svg" alt="indkøbsliste">
+      <img src="images/indkoeb.svg" alt="indkøbsliste">
       <p>Indkøbsliste</p>
     </a>
 
-    <a class="btn-floating btn-large z-depth-3" href="#clients" onclick="showPage('clients')">
+    <a class="btn-floating btn-large z-depth-3" href="#opret" onclick="showPage('opret')">
       <i class="green material-icons">add</i></a>
 
     <a href="#clients" onclick="showPage('clients')">
@@ -36,7 +36,7 @@
       <p>Opskrifter</p>
     </a>
     <a href="#profile" onclick="showPage('profile')">
-      <img src="images/user.svg" alt="Mig">
+      <img src="images/profil.svg" alt="Mig">
       <p>Mig</p>
     </a>
   </nav>
@@ -72,15 +72,15 @@
       <!-- Card Content -->
     </div>
     <section id="full-width2">
-    <div class="radio-buttons-7">
-       <div id="circle1"> </div>
-       <div id="circle2"> </div>
-       <div id="circle3"> </div>
-       <div id="circle4"> </div>
-       <div id="circle5"> </div>
-       <div id="circle6"> </div>
-       <div id="circle7"> </div>
-    </div>
+      <div class="radio-buttons-7">
+        <div id="circle1"> </div>
+        <div id="circle2"> </div>
+        <div id="circle3"> </div>
+        <div id="circle4"> </div>
+        <div id="circle5"> </div>
+        <div id="circle6"> </div>
+        <div id="circle7"> </div>
+      </div>
     </section>
   </section>
 
@@ -100,6 +100,138 @@
     <p>Hmm, there should be some clients right here...</p>
   </section>
 
+
+  <!-- Opret madplan 1 -->
+
+  <section id="opret" class="page">
+    <header class="topbar">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">
+        <style type="text/css">
+          .st0 {
+            fill: #3D9658;
+          }
+        </style>
+        <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
+      </svg>
+      <img src="images/logo-hvid.svg" alt="logo">
+      <a href="#clients" onclick="showPage('clients')">
+        <img src="images/calendar.svg" alt="Kalender">
+      </a>
+    </header>
+    <div class="mainweek-wrapper">
+      <div id="headerweek">
+        <h2>
+          Madplan for
+        </h2>
+        <h1>
+          UGE 42
+        </h1>
+        <p id="todaysdate">
+          MANDAG 12/9
+        </p>
+      </div>
+      <input id="food-input" type="text" placeholder="Chicken Masala" contenteditable="true">
+      <div id="placement2">
+        <div class="input-field dropdown-users col s12">
+          <select multiple>
+            <option value="" disabled selected>Hvem spiser med?</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>Tilføj personer</label>
+        </div>
+        <div id="guests-place">
+          <label>Antal gæster</label>
+          <input id="guests" type="number" contenteditable="true">
+        </div>
+      </div>
+      <label id="write-comment">Skriv kommentar</label>
+      <textarea name="kommentar" rows="8" cols="80" id="commentary-input" placeholder="Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></textarea>
+      <label id="link-to">Link til opskrift</label>
+      <input id="recipe-link" type="text" placeholder="www.arla.dk/chichen-masala/" contenteditable="true">
+      <form action="#">
+        <div class="file-field upload-file6 input-field">
+          <div class="btn">
+            <span><i class="small material-icons">cloud_upload</i>Upload billede</span>
+            <input type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </form>
+      <a href="#opret2" onclick="showPage('opret2')" class="waves-effect right button-align waves-light btn">Næste</a>
+    </div>
+
+  </section>
+
+
+  <!-- Opret madplan 2 -->
+
+  <section id="opret2" class="page">
+    <header class="topbar">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">
+        <style type="text/css">
+          .st0 {
+            fill: #3D9658;
+          }
+        </style>
+        <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
+      </svg>
+      <img src="images/logo-hvid.svg" alt="logo">
+      <a href="#clients" onclick="showPage('clients')">
+        <img src="images/calendar.svg" alt="Kalender">
+      </a>
+    </header>
+    <div class="mainweek-wrapper">
+      <div id="headerweek">
+        <h2>
+          Madplan for
+        </h2>
+        <h1>
+          UGE 42
+        </h1>
+        <p id="todaysdate">
+          TIRSDAG 13/9
+        </p>
+      </div>
+      <input id="food-input" type="text" placeholder="Chicken Masala" contenteditable="true">
+      <div id="placement2">
+        <div class="input-field dropdown-users col s12">
+          <select multiple>
+            <option value="" disabled selected>Hvem spiser med?</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>Tilføj personer</label>
+        </div>
+        <div id="guests-place">
+          <label>Antal gæster</label>
+          <input id="guests" type="number" contenteditable="true">
+        </div>
+      </div>
+      <label id="write-comment">Skriv kommentar</label>
+      <textarea name="kommentar" rows="8" cols="80" id="commentary-input" placeholder="Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></textarea>
+      <label id="link-to">Link til opskrift</label>
+      <input id="recipe-link" type="text" placeholder="www.arla.dk/chichen-masala/" contenteditable="true">
+      <form action="#">
+        <div class="file-field upload-file6 input-field">
+          <div class="btn">
+            <span><i class="small material-icons">cloud_upload</i>Upload billede</span>
+            <input type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </form>
+      <a href="#opret2" onclick="showPage('opret2')" class="waves-effect right button-align waves-light btn">Næste</a>
+    </div>
+
+  </section>
+
   <!-- contact page -->
   <section id="profile" class="page">
     <header class="topbar">
@@ -110,7 +242,7 @@
   </section>
 
   <section id="login" class="page">
-      <img id="login-logo" src="images/logo-hvid.svg" alt="logo">
+    <img id="login-logo" src="images/logo-hvid.svg" alt="logo">
     <!-- firebase auth container  -->
     <section id="firebaseui-auth-container"></section>
   </section>
