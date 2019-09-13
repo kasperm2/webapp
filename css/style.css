@@ -118,6 +118,10 @@ nav {
   width: 35px;
 }
 
+.tabbar2 a img:visited{
+  color: var(--green);
+}
+
 .tabbar2 a p{
   color: #000;
 }
@@ -208,8 +212,45 @@ nav {
 
 
 
+/* ---------- Login page ---------- */
 
+#login-logo{
+  position: absolute;
+  top: 19%;
+  float: none;
+  width: 200px;
+  left: 25%;
+}
 
+.firebaseui-idp-password, .firebaseui-idp-password:hover, .mdl-button.firebaseui-idp-password:active, .mdl-button.firebaseui-idp-password:focus{
+  background-color: #fff;
+}
+
+.firebaseui-idp-text{
+    color: #757575;
+  }
+
+.firebaseui-idp-facebook, .firebaseui-idp-facebook:hover, .mdl-button.firebaseui-idp-facebook:active, .mdl-button.firebaseui-idp-facebook:focus{
+  background-color: #fff;
+}
+
+.mdl-button--primary.mdl-button--primary{
+  color: #757575;
+}
+
+.firebaseui-textfield.mdl-textfield .firebaseui-label::after,
+.firebaseui-textfield.mdl-textfield .firebaseui-label::after,
+.mdl-textfield__label:after{
+  background-color: white !important;
+}
+
+.mdl-button{
+  border-radius: 25px;
+}
+
+.mdl-button--raised.mdl-button--colored, .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:hover{
+  border-radius: 25px !important;
+}
 
 
 /* ---------- animations ---------- */
