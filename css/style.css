@@ -1,7 +1,8 @@
 /* ---------- root variables ---------- */
 :root {
-  --green: rgb(73,180, 106);
+  --green: rgb(73, 180, 106);
   --light-green: rgb(172, 198, 201);
+  --dark-green: #216435;
   --light-grey: #f1f1f4;
   --text-color-light: #f1f1f1;
   --text-color-dark: #333;
@@ -25,8 +26,8 @@ h1, h2, h3, h4, h5, h6, p{
   font-family: 'montserrat';
 }
 
-.green{
-  background: linear-gradient(0deg, rgba(58,162,90,1) 0%, rgba(79,193,114,1) 100%);
+.green {
+  background: linear-gradient(0deg, rgba(58, 162, 90, 1) 0%, rgba(79, 193, 114, 1) 100%);
 }
 
 /* ---------- topbar styling ---------- */
@@ -41,12 +42,12 @@ h1, h2, h3, h4, h5, h6, p{
   z-index: 9999;
 }
 
-.topbar img{
+.topbar img {
   width: 100px;
   float: left;
 }
 
-.topbar a img{
+.topbar a img {
   width: 30px;
   color: #fff;
 }
@@ -62,14 +63,13 @@ h1, h2, h3, h4, h5, h6, p{
   top: 25px;
 }
 
-.topbar svg{
+.topbar svg {
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
   height: 150px;
 }
-
 
 /* ---------- tabbar styling ---------- */
 .tabbar2 {
@@ -104,16 +104,15 @@ nav {
   width: 90px;
   height: 90px;
   padding: 10px 0 0 0;
-
 }
 
-.btn-floating{
+.btn-floating {
   position: fixed;
   left: calc(50% - 23px);
   bottom: 7%;
 }
 
-.tabbar2 a img{
+.tabbar2 a img {
   width: 35px;
 }
 
@@ -122,8 +121,10 @@ nav {
 }
 
 .tabbar2 a p{
+.tabbar2 a p {
   color: #000;
 }
+
 /* Change the color of links on hover */
 .tabbar2 a:hover {
   color: var(--text-color-dark);
@@ -143,7 +144,6 @@ nav {
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
   padding: 120px 0;
-
 }
 
 /* ---------- logo styling ---------- */
@@ -154,8 +154,7 @@ nav {
 }
 
 /* ---------- Home page ---------- */
-
-.card{
+.card {
   border-radius: 15px;
 }
 
@@ -167,18 +166,18 @@ nav {
   margin-top: 15px;
 }
 
-.headermain h2{
+.headermain h2 {
   font-size: 20px;
   margin: 0px;
   font-family: 'swister';
 }
 
-.headermain h1{
+.headermain h1 {
   margin: 0;
   font-size: 22px;
 }
 
-.headermain{
+.headermain {
   padding: 15px 0 0 20px;
   color: #fff;
 }
@@ -190,6 +189,7 @@ nav {
  width: 30%;
  padding: 15px 0 ;
 }
+/*-------- input felt indkøbsliste --------- */
 
 #circle1, #circle2, #circle3, #circle4, #circle5, #circle6, #circle7{
   border-radius: 25px;
@@ -201,17 +201,50 @@ nav {
 #circle1{
   background-color: #fff;
 }
+#scrollable {
+  overflow: scroll;
+  height: 270px;
+}
 
 #full-width2{
   width: 100%;
   display: flex;
   justify-content: center;
 }
+#scrollable p {
+  padding: 5px;
+}
 
+.indkob-card {
+  margin: 40px;
+  border-radius: 15px;
+  padding: 0 0 20px 20px;
+  background-color: white;
+}
 
+#vareForm {
+  position: fixed;
+  bottom: 100px;
+  background-color: white;
+  width: 78.66%;
+  padding: 20px;
+  right: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 3px solid #efefef;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0px -8px 21px -9px rgba(0, 0, 0, 0.10);
+}
 
+#about {
+  position: fixed;
+  width: 100%;
+}
 
 /* ---------- Login page ---------- */
+#vare {
+  width: 80%;
+}
 
 #login-logo{
   position: absolute;
@@ -381,8 +414,34 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 
 
-/* ---------- animations ---------- */
+#tilfoj-vare {
+  bottom: 20%;
+  transform: translateY(-25%);
+  left: 80%;
+  background-color: var(--dark-green);
+}
 
+.edit-icon-2 {
+  margin-left: 80%;
+  border-radius: 0 15px 0 100%;
+  width: 20%;
+  height: 50px;
+  background-color: var(--dark-green);
+}
+
+.edit-icon-2 button i {
+  color: white;
+  transform: translateX(50%);
+  padding-top: 6px;
+}
+
+.top-indkob-icon {
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+/* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
   from {
@@ -475,7 +534,4 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   background-color: var(--green);
 }
 
-
-@media screen and (min-width: 415px) and (max-width: 728px){
-
-}
+@media screen and (min-width: 415px) and (max-width: 728px) {}
