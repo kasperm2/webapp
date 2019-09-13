@@ -52,16 +52,18 @@ function showLoader(show) {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD12x3NRaz7apxsiO4Aaro56Iqt0tAJcjg",
-  authDomain: "web-applikation-2d72a.firebaseapp.com",
-  databaseURL: "https://web-applikation-2d72a.firebaseio.com",
-  projectId: "web-applikation-2d72a",
-  storageBucket: "web-applikation-2d72a.appspot.com",
-  messagingSenderId: "618467941437",
-  appId: "1:618467941437:web:55e26fce9ee0c50ce75e54"
+  apiKey: "AIzaSyCr9783mNpQFd0rbxsz76boqAvcB7g6Jyk",
+  authDomain: "niels-hh.firebaseapp.com",
+  databaseURL: "https://niels-hh.firebaseio.com",
+  projectId: "niels-hh",
+  storageBucket: "niels-hh.appspot.com",
+  messagingSenderId: "123409531330",
+  appId: "1:123409531330:web:84e712137cf12b4f19165b"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const vareRef = db.collection("indkob");
 
 // Firebase UI configuration
 const uiConfig = {
@@ -103,4 +105,45 @@ function appendUserData(user) {
     <h3>${user.displayName}</h3>
     <p>${user.email}</p>
   `;
+}
+
+// ------- her begynder Indkøbs funktionen -------- //
+// watch the database ref for changes
+vareRef.onSnapshot(function(snapshotData) {
+  let indkob = snapshotData.docs;
+  appendIndkob(indkob);
+});
+
+// append VARE to the DOM
+function appendIndkob(indkob) {
+  let htmlTemplate = "";
+  for (let vare of indkob) {
+    // console.log(vare.id);
+    console.log(vare.data().vare);
+    htmlTemplate += `
+    <p>
+      <label>
+        <input type="checkbox" />
+        <span>${vare.data().vare}</span>
+      </label>
+    </p>
+    `;
+  }
+  document.querySelector('#scrollable').innerHTML = htmlTemplate;
+  // RYDDER INPUT FELT EFTER SUBMIT
+  document.getElementById('vare').value='';
+  //
+}
+
+// add a new VARE to firestore (database)
+function createVare() {
+  // references to the inoput fields
+  let vareInput = document.querySelector('#vare');
+  console.log(vareInput.value);
+
+  let newVare = {
+    vare: vareInput.value,
+  };
+
+  vareRef.add(newVare);
 }

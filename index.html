@@ -74,9 +74,42 @@
   <!-- about page -->
   <section id="about" class="page">
     <header class="topbar">
-      <h2>Indkøbsliste</h2>
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">
+        <style type="text/css">
+          .st0 {
+            fill: #3D9658;
+          }
+        </style>
+        <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
+      </svg>
+      <img src="images/logo-hvid.svg" alt="logo">
+      <a href="#clients" onclick="showPage('clients')">
+        <img src="images/calendar.svg" alt="Kalender">
+      </a>
     </header>
-    <p>This is my about page</p>
+    <div class="indkob-card z-depth-2">
+      <div class="top-indkob-icon">
+        <div class="edit-icon-2">
+          <button id="rediger-vare" type="button" name="button" onclick="">
+            <i class="material-icons">create</i>
+          </button>
+        </div>
+      </div>
+      <div id="scrollable">
+        <p>
+          <label>
+            <input type="checkbox" />
+            <span>hallo</span>
+          </label>
+        </p>
+      </div>
+      <div class="input-field col s6">
+        <form id="vareForm">
+          <input placeholder="Indtast din vare her" id="vare" type="text">
+          <button id="tilfoj-vare" type="button" name="button" onclick="createVare()" class="btn-floating"><i class="material-icons right">add</i></button>
+        </form>
+      </div>
+    </div>
   </section>
 
   <!-- clients page -->
