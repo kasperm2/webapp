@@ -65,23 +65,17 @@
         Madplan for
       </h2>
       <h1>
-        UGE 42
+        UGE 38
       </h1>
     </div>
-    <div class="card small">
-      <!-- Card Content -->
-    </div>
-    <section id="full-width2">
-      <div class="radio-buttons-7">
-        <div id="circle1"> </div>
-        <div id="circle2"> </div>
-        <div id="circle3"> </div>
-        <div id="circle4"> </div>
-        <div id="circle5"> </div>
-        <div id="circle6"> </div>
-        <div id="circle7"> </div>
+    <div class="carousel carousel-slider center">
+      <div class="carousel-item" id="card-text4">
+
       </div>
-    </section>
+      <div class="carousel-item" id="card-text5">
+
+
+      </div>
   </section>
 
   <!-- about page -->
@@ -100,21 +94,19 @@
         <img src="images/calendar.svg" alt="Kalender">
       </a>
     </header>
+    <div class="indkob-titel">
+      <h1>Indkøbsliste</h1>
+    </div>
     <div class="indkob-card z-depth-2">
+
       <div class="top-indkob-icon">
         <div class="edit-icon-2">
-          <button id="rediger-vare" type="button" name="button" onclick="">
+          <button id="rediger-vare" type="button" name="button" onclick="editVare();">
             <i class="material-icons">create</i>
           </button>
         </div>
       </div>
       <div id="scrollable">
-        <p>
-          <label>
-            <input type="checkbox" />
-            <span>hallo</span>
-          </label>
-        </p>
       </div>
       <div class="input-field col s6">
         <form id="vareForm">
@@ -161,7 +153,7 @@
           UGE 42
         </h1>
         <p id="todaysdate">
-          MANDAG 12/9
+          MANDAG 16/9
         </p>
       </div>
       <input id="food-input" type="text" placeholder="Chicken Masala" contenteditable="true">
@@ -188,14 +180,14 @@
         <div class="file-field upload-file6 input-field">
           <div class="btn">
             <span><i class="small material-icons">cloud_upload</i>Upload billede</span>
-            <input type="file">
+            <input type="file" id="imagePreview" onchange="previewImage(this.files[0])">
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text">
           </div>
         </div>
       </form>
-      <a href="#opret2" onclick="showPage('opret2')" class="waves-effect right button-align waves-light btn">Næste</a>
+      <a href="#opret2" onclick="createMealplan()" class="waves-effect right button-align waves-light btn">Næste</a>
     </div>
 
   </section>
@@ -230,8 +222,8 @@
           TIRSDAG 13/9
         </p>
       </div>
-      <input id="food-input" type="text" placeholder="Chicken Masala" contenteditable="true">
-      <div id="placement2">
+      <input id="food-input2" type="text" placeholder="Chicken Masala" contenteditable="true" required>
+      <div id="placement3">
         <div class="input-field dropdown-users col s12">
           <select multiple>
             <option value="" disabled selected>Hvem spiser med?</option>
@@ -241,15 +233,15 @@
           </select>
           <label>Tilføj personer</label>
         </div>
-        <div id="guests-place">
+        <div id="guests-place2">
           <label>Antal gæster</label>
-          <input id="guests" type="number" contenteditable="true">
+          <input id="guests2" type="number" contenteditable="true" required>
         </div>
       </div>
-      <label id="write-comment">Skriv kommentar</label>
-      <textarea name="kommentar" rows="8" cols="80" id="commentary-input" placeholder="Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></textarea>
-      <label id="link-to">Link til opskrift</label>
-      <input id="recipe-link" type="text" placeholder="www.arla.dk/chichen-masala/" contenteditable="true">
+      <label id="write-comment2">Skriv kommentar</label>
+      <textarea name="kommentar" rows="8" cols="80" id="commentary-input2" placeholder="Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></textarea>
+      <label id="link-to2">Link til opskrift</label>
+      <input id="recipe-link2" type="text" placeholder="www.arla.dk/chichen-masala/" contenteditable="true">
       <form action="#">
         <div class="file-field upload-file6 input-field">
           <div class="btn">
@@ -268,9 +260,19 @@
 
   <!-- contact page -->
   <section id="profile" class="page">
-    <header class="topbar">
-      <h2>Profile</h2>
-      <a class="right" href="#" onclick="logout()">Logout</a>
+    <header class="topbar profile-header">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">
+        <style type="text/css">
+          .st0 {
+            fill: #3D9658;
+          }
+        </style>
+        <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
+      </svg>
+      <div id="profile-img">
+
+      </div>
+      <a class="right" href="#" onclick="logout()"><img src="images/logout.svg" alt="log ud"></a>
     </header>
 
   </section>

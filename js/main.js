@@ -64,6 +64,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const vareRef = db.collection("indkob");
+const planRef = db.collection("mealplan");
+//const imgRef = db.collection("images");
 
 // Firebase UI configuration
 const uiConfig = {
@@ -107,18 +109,107 @@ function appendUserData(user) {
   `;
 }
 
+// Begyndelse af images funktion
+
+//imgRef.onSnapshot(function(snapshotData) {
+  //let images = snapshotData.docs;
+  //appendMoreUserData(images);
+//});
+
+//function appendMoreUserData(images){
+  //document.querySelector('#profile-img').innerHTML +=`
+  //`;
+//};
+
+// Show date
+
+// var today = new Date();
+// var day = today.getDay();
+// var daylist = ["Søndag","Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag"];
+// var hour = today.getHours();
+// var min = today.getMinutes();
+//
+//
+// var todayHTML = document.getElementById("todayHTML");
+//
+// todayHTML.innerHTML = daylist[day];
+
+
+// Begyndelse af madplans funktion
+
+planRef.onSnapshot(function(snapshotData) {
+  let mealplan = snapshotData.docs;
+  appendMealplan(mealplan);
+});
+
+function appendMealplan(mealplan){
+  let htmlTemplate = "";
+    for (let mad of mealplan) {
+    htmlTemplate += `
+    <div class="aligments3">
+    <p id="day-of-week">MANDAG 16/9</p>
+    <h3 id="title-header">${mad.data().title}</h3>
+    <p id="small-titles2">Personer</p>
+    <span></span>
+    <p id="small-titles2">Kommentare</p>
+    <span id="kommentar-data">${mad.data().comment}</span>
+    <a href="${mad.data().link}" class="waves-effect waves-light btn button-klar">SE OPSKRIFT</a>
+    <img src="${mad.data().img}" alt="mad">
+    </div>
+    `;
+  }
+  document.querySelector('#card-text4').innerHTML = htmlTemplate;
+}
+
+let eventImage = "";
+
+function createMealplan() {
+  console.log("Hej");
+  let recipeTitle = document.querySelector('#food-input');
+  let writeComment = document.querySelector('#commentary-input');
+  let linkRecipe = document.querySelector('#recipe-link');
+
+  console.log(recipeTitle.value);
+  console.log(writeComment.value);
+  console.log(linkRecipe.value);
+  console.log(eventImage);
+
+
+let newMealplan = {
+  title: recipeTitle.value,
+  comment: writeComment.value,
+  link: linkRecipe.value,
+  img: eventImage
+};
+
+planRef.add(newMealplan);
+
+}
+
+function previewImage(file){
+  if (file){
+    let reader = new FileReader();
+    reader.onload = function(event) {
+      eventImage = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+
+
+
 
 // Materilize Carousel
 
-document.addEventListener('DOMContentLoaded', function() {
-   var elems = document.querySelectorAll('.carousel');
-   var instances = M.Carousel.init(elems, options);
- });
-
-var instance = M.Carousel.init({
+let elems = document.querySelectorAll('.carousel');
+let options = {
   fullWidth: true,
   indicators: true
- });
+};
+let instances = M.Carousel.init(elems, options);
+
+
 
 
  // Materilize dropodown
@@ -144,8 +235,9 @@ function appendIndkob(indkob) {
     console.log(vare.data().vare);
     htmlTemplate += `
     <p>
+      <button onclick="deleteVare('${vare.id}');" class="hide-delete"><i class="material-icons">clear</i></button>
       <label>
-        <input type="checkbox" />
+        <input type="checkbox" / class="toggle-edit">
         <span>${vare.data().vare}</span>
       </label>
     </p>
@@ -168,4 +260,30 @@ function createVare() {
   };
 
   vareRef.add(newVare);
+}
+
+
+// ========== DELETE VARE ==========
+function deleteVare(id) {
+  // console.log(id);
+  vareRef.doc(id).delete();
+}
+
+// ========= DELETE ALLE VARER ====
+
+function clearVare(id) {
+  // console.log(id);
+  vareRef.doc(id).delete();
+}
+
+// ========== TOGGLE ON / OFF KNAP VARE ============
+function editVare() {
+  let deleteIndkob = document.querySelectorAll(".hide-delete");
+  for (let element of deleteIndkob) {
+    if (element.style.display === "none") {
+      element.style.display = "inline-block";
+    } else {
+      element.style.display = "none";
+    }
+  }
 }

@@ -283,7 +283,7 @@ nav {
   padding: 0 20px;
 }
 
-#food-input, #guests{
+#food-input, #guests, #food-input2, #guests2{
   text-transform: uppercase;
   font-size: 18px;
   height: 35px;
@@ -298,21 +298,21 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   border-bottom: 1px solid var(--green);
 }
 
-.dropdown-users{
+.dropdown-users, .dropdown-users2{
   width: 60%;
   color: #757575;
 }
 
-.select-dropdown{
+.select-dropdown, .select-dropdown2{
   color: #757575;
 }
 
-#guests-place{
+#guests-place, #guests-place{
   width: 35%;
   padding-left: 15px;
 }
 
-#placement2{
+#placement2, #placement3 {
   display: flex;
   flex-direction: row;
   padding-top: 15px;
@@ -322,7 +322,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   left: 0;
 }
 
-#commentary-input{
+#commentary-input, #commentary-input2{
   font-size: 10px;
   height: 35px;
   border-left-width: 0px !important;
@@ -331,20 +331,20 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 }
 
-#write-comment{
+#write-comment, #write-comment2{
   padding-top: 15px;
 }
 
-#link-to{
+#link-to, #link-to2{
   padding-top: 15px;
 }
 
-#recipe-link{
+#recipe-link, #recipe-link2{
   font-size: 16px;
   height: 35px;
 }
 
-#upload-recipe-image{
+#upload-recipe-image, #upload-recipe-image2{
   font-size: 16px;
   height: 35px;
 }
@@ -378,6 +378,22 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 /*-------- input felt indkøbsliste --------- */
 
 
+
+
+#scrollable p {
+  border-bottom: 2px solid #efefef;
+  width: 95%;
+}
+
+.toggle-edit {
+
+}
+
+.indkob-titel {
+  margin: -20px 0 -20px 40px;
+  color: white;
+}
+
 #scrollable {
   overflow: scroll;
   height: 270px;
@@ -396,9 +412,9 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 #vareForm {
   position: fixed;
-  bottom: 135px;
+  bottom: 150px;
   background-color: white;
-  width: 80.8%;
+  width: 80.7%;
   padding: 20px;
   right: 50%;
   left: 50%;
@@ -424,8 +440,23 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   background-color: var(--dark-green);
 }
 
+.clear-button {
+  margin-top: 10px;
+  background-color: red;
+  position: absolute;
+  display: none;
+}
+
+.hide-delete {
+  display: none;
+  position: absolute;
+  right: 0;
+  padding-right: 50px;
+  color: red;
+}
+
 .edit-icon-2 {
-  margin-left: 80%;
+  margin-left: 81%;
   border-radius: 0 15px 0 100%;
   width: 20%;
   height: 50px;
@@ -440,12 +471,108 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 .top-indkob-icon {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-bottom: 5px;
   border-radius: 15px;
 }
 
+.indkob-titel h1{
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* ---------- Materialize Carousel ---------- */
+.card {
+  margin: .5rem 2em 1rem 2em;
+}
+
+.carousel .indicators .indicator-item {
+  background-color: #ee6e7382;
+}
+
+.carousel .indicators .indicator-item.active {
+  background-color: #f44336;
+}
+
+.carousel.carousel-slider, .carousel-item {
+  width: 90%;
+  height: 45%;
+  min-height: 400px;
+  position: absolute;
+  top: 27%;
+  left: 5%;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.carousel, .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 33%;
+    margin: 0;
+}
+
+.carousel .indicators .indicator-item{
+  background-color: var(--light-grey);
+}
+
+.carousel .indicators .indicator-item.active{
+  background-color: var(--green);
+}
+
+#day-of-week{
+  font-size: 14px;
+  font-weight: 200;
+  text-align: left;
+  padding-left: 20px;
+}
+
+#title-header{
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+
+#small-titles2{
+  text-align: left;
+  color: #000;
+  padding: 0 0 0 20px;
+}
+
+.aligments3 img{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+}
+
+#kommentar-data{
+ text-align: left;
+ padding: 0 0 7px 20px;
+ color: var(--dark-grey);
+ font-weight: 200;
+}
 
 
+.aligments3{
+  display: flex;
+  flex-direction: column;
+}
+
+.button-klar{
+  width: 35%;
+  border-radius: 15px;
+  margin: 0 0 0 20px;
+}
 
 
 
