@@ -491,16 +491,20 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 .carousel .indicators .indicator-item {
   background-color: #ee6e7382;
+  width: 10px;
+  height: 10px;
 }
 
 .carousel .indicators .indicator-item.active {
   background-color: #f44336;
+  width: 10px;
+  height: 10px;
 }
 
 .carousel.carousel-slider, .carousel-item {
   width: 90%;
   height: 45%;
-  min-height: 400px;
+  min-height: 420px;
   position: absolute;
   top: 27%;
   left: 5%;
@@ -552,7 +556,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 30%;
+    height: 37%;
 }
 
 #kommentar-data{
