@@ -3,10 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>SINGLE PAGE WEB APP TEMPLATE</title>
+  <title>MEAL PLANNER</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Get started with HTML, CSS and JavaScript">
-  <meta name="author" content="Rasmus Cederdorff">
+  <meta name="description" content="Meal planner">
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -31,7 +30,7 @@
     <a class="btn-floating btn-large z-depth-3" href="#opret" onclick="showPage('opret')">
       <i class="green material-icons">add</i></a>
 
-    <a href="#clients" onclick="showPage('clients')">
+    <a href="#clients" >
       <img src="images/recipe2.svg" alt="opskrifter">
       <p>Opskrifter</p>
     </a>
@@ -44,7 +43,7 @@
 
 
   <!-- pages -->
-  <!-- home page -->
+  <!-- FORSIDE/MADPLAN -->
   <section id="home" class="page">
     <header class="topbar">
       <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">
@@ -56,7 +55,7 @@
         <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
       </svg>
       <img src="images/logo-hvid.svg" alt="logo">
-      <a href="#clients" onclick="showPage('clients')">
+      <a href="#clients" >
         <img src="images/calendar.svg" alt="Kalender">
       </a>
     </header>
@@ -76,7 +75,7 @@
     </div>
   </section>
 
-  <!-- about page -->
+  <!-- INDKØBSLISTE -->
   <section id="about" class="page">
     <header class="topbar">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">
@@ -88,7 +87,7 @@
         <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
       </svg>
       <img src="images/logo-hvid.svg" alt="logo">
-      <a href="#clients" onclick="showPage('clients')">
+      <a href="#clients" >
         <img src="images/calendar.svg" alt="Kalender">
       </a>
     </header>
@@ -116,12 +115,12 @@
   </section>
 
 
-  <!-- clients page -->
+  <!-- OPSKRIFTER -->
   <section id="clients" class="page">
     <header class="topbar">
-      <h2>Clients</h2>
+      <h2>404</h2>
+        <p>Vi nåede ikke at få den lavet, pga. priotering...</p>
     </header>
-    <p>Hmm, there should be some clients right here...</p>
   </section>
 
 
@@ -138,7 +137,7 @@
         <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
       </svg>
       <img src="images/logo-hvid.svg" alt="logo">
-      <a href="#clients" onclick="showPage('clients')">
+      <a href="#clients" >
         <img src="images/calendar.svg" alt="Kalender">
       </a>
     </header>
@@ -157,12 +156,8 @@
       <input id="food-input" type="text" placeholder="Chicken Masala" contenteditable="true">
       <div id="placement2">
         <div class="input-field dropdown-users col s12">
-          <select multiple>
-            <option value="" disabled selected>Hvem spiser med?</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-            <option value="4">Option 4</option>
+          <select id="userDropdown" onchange="getSelectedValue(this)" multiple>
+            <option value="" disabled >Hvem spiser med?</option>
           </select>
           <label>Tilføj personer</label>
         </div>
@@ -205,7 +200,7 @@
         <path class="st0" d="M0,0v81C56.3,68.8,221.4,39,393.7,66.5c7.2,1.2,14,2.1,20.3,2.8V0H0z" />
       </svg>
       <img src="images/logo-hvid.svg" alt="logo">
-      <a href="#clients" onclick="showPage('clients')">
+      <a href="#clients" >
         <img src="images/calendar.svg" alt="Kalender">
       </a>
     </header>
@@ -257,7 +252,7 @@
 
   </section>
 
-  <!-- profil -->
+  <!-- MIG -->
   <section id="profile" class="page">
     <header class="topbar profile-header">
       <svg id="svg-profil" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 414 100" style="enable-background:new 0 0 414 100;" xml:space="preserve">

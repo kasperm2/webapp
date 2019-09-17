@@ -1,5 +1,7 @@
 "use strict";
 
+// SPA (JONAS, KASPER, CHRISTINA OG NIELS)
+
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -48,7 +50,7 @@ function showLoader(show) {
   }
 }
 
-// ========== Firebase sign in functionality ========== //
+// ========== Firebase sign in functionality (KASPER) ========== //
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -111,23 +113,6 @@ function logout() {
   document.querySelector('#imagePreview').src = "";
 }
 
-// append user data to profile page
-function appendUserData() {
-  // auth user
-  document.querySelector('#name').value = currentUser.displayName;
-  document.querySelector('#mail').value = currentUser.email;
-
-  // database user
-  userRef.doc(currentUser.uid).get().then(function(doc) {
-    let userData = doc.data();
-    console.log(userData);
-    if (userData) {
-      document.querySelector('#birthdate').value = userData.birthdate;
-      document.querySelector('#phoneNumber').value = userData.phoneNumber;
-      document.querySelector('#imagePreview').src = userData.img;
-    }
-  });
-}
 
 // update user data - auth user and database object
 function updateUser() {
@@ -149,6 +134,7 @@ function updateUser() {
   });
 }
 
+// Opdatering af profil (CHRISTINA, NIELS, JONAS OG KASPER)
 function appendUserData(user) {
   document.querySelector('#profil-info').innerHTML += `
   <label for="name">Navn</label>
@@ -173,64 +159,107 @@ function appendUserData(user) {
     <a href="#" onclick="updateUser()" class="waves-effect right button-align skub waves-light btn">Opdater</a>
   </form>
   `;
+  // auth user
+  document.querySelector('#name').value = currentUser.displayName;
+  document.querySelector('#mail').value = currentUser.email;
+
+  // database user
+  userRef.doc(currentUser.uid).get().then(function(doc) {
+    let userData = doc.data();
+    console.log(userData);
+    if (userData) {
+      document.querySelector('#birthdate').value = userData.birthdate;
+      document.querySelector('#phoneNumber').value = userData.phoneNumber;
+      document.querySelector('#profile-image').innerHTML += `
+        <img src="${userData.img}" alt="profil-billede">
+        <h1>${userData.name}</h1>
+        `;
+    }
+  });
 }
 
-function appendMoreUserData(user) {
-  document.querySelector('#profile-image').innerHTML += `
-  <img src="${user.img}" alt="profil-billede">
-  <h1>${user.displayName}</h1>
-  `;
-  console.log(users);
+// Watch database
+userRef.onSnapshot(function(snapshotData) {
+  let users = snapshotData.docs;
+  appendDropdown(users);
+});
+
+   // Materilize dropdown
+function appendDropdown(users) {
+
+  for (let user of users) {
+    console.log(user);
+    document.querySelector('#userDropdown').innerHTML += `
+    <option value="${user.id}" id="vaerdien">${user.data().name}</option>
+    `;
+  }
+
+
+     var elems = document.querySelectorAll('select');
+     var instances = M.FormSelect.init(elems);
+
 }
+function getSelectedValue(value) {
+  console.log(value);
+};
 
 
-// Show date
-
-// var today = new Date();
-// var day = today.getDay();
-// var daylist = ["Søndag","Mandag","Tirsdag","Onsdag","Torsdag","Fredag","Lørdag"];
-// var hour = today.getHours();
-// var min = today.getMinutes();
-//
-//
-// var todayHTML = document.getElementById("todayHTML");
-//
-// todayHTML.innerHTML = daylist[day];
 
 
-// Begyndelse af madplans funktion
+// Begyndelse af madplans funktion (JONAS OG KASPER)
 
 planRef.onSnapshot(function(snapshotData) {
   let mealplan = snapshotData.docs;
   appendMealplan(mealplan);
 });
 
+// Vis indhold i kort
 function appendMealplan(mealplan){
   let htmlTemplate = "";
     for (let mad of mealplan) {
+      let usersTemplate = "";
+    for (let user of mad.data().users){
+      userRef.doc(user).get().then(function(doc) {
+
+      document.getElementById(mad.id) +=`
+     <img src="${doc.data().img}">
+     `;
+    });
+    }
     htmlTemplate += `
+
     <div class="aligments3">
     <p id="day-of-week">MANDAG 16/9</p>
     <h3 id="title-header">${mad.data().title}</h3>
     <p id="small-titles2">Personer</p>
-    <span></span>
+    <span id="${mad.id}"></span>
     <p id="small-titles2">Kommentare</p>
     <span id="kommentar-data">${mad.data().comment}</span>
     <a href="${mad.data().link}" class="waves-effect waves-light btn button-klar">SE OPSKRIFT</a>
     <img src="${mad.data().img}" alt="mad">
     </div>
     `;
+
   }
+
   document.querySelector('#card-text4').innerHTML = htmlTemplate;
 }
 
+
+
 let eventImage = "";
 
+// Input data til madplan (kort)
 function createMealplan() {
   console.log("Hej");
   let recipeTitle = document.querySelector('#food-input');
   let writeComment = document.querySelector('#commentary-input');
   let linkRecipe = document.querySelector('#recipe-link');
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems);
+
+  console.log(instances);
+  console.log(instances[0].getSelectedValues())
 
   console.log(recipeTitle.value);
   console.log(writeComment.value);
@@ -242,12 +271,15 @@ let newMealplan = {
   title: recipeTitle.value,
   comment: writeComment.value,
   link: linkRecipe.value,
-  img: eventImage
+  img: eventImage,
+  users: instances[0].getSelectedValues()
 };
 
 planRef.add(newMealplan);
 
 }
+
+// Vis billede fra fil
 
 function previewImage(file){
   if (file){
@@ -260,10 +292,7 @@ function previewImage(file){
 }
 
 
-
-
-
-// Materilize Carousel
+// Materilize Carousel (JONAS OG KASPER)
 
 let elems = document.querySelectorAll('.carousel');
 let options = {
@@ -273,19 +302,7 @@ let options = {
 let instances = M.Carousel.init(elems, options);
 
 
-
-
- // Materilize dropodown
-
- document.addEventListener('DOMContentLoaded', function() {
-   var elems = document.querySelectorAll('select');
-   var instances = M.FormSelect.init(elems);
- });
-
- // Users login
-
-
- // ------- her begynder Indkøbs funktionen -------- //
+ // ------- her begynder Indkøbs funktionen (CHRISTINA OG NIELS) -------- //
 // watch the database ref for changes
 vareRef.onSnapshot(function(snapshotData) {
   let indkob = snapshotData.docs;
