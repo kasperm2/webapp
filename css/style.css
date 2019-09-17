@@ -635,7 +635,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   padding: 0 0 0 20px;
 }
 
-.aligments3 img{
+#retten-mad{
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -660,6 +660,19 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   width: 35%;
   border-radius: 15px;
   margin: 0 0 0 20px;
+}
+
+.persons-card img{
+  height: 35px;
+  width: 35px;
+  z-index: 999;
+  float:left;
+  border-radius: 25px;
+  margin-left: -10px;
+}
+
+.persons-card {
+  padding-left: 30px;
 }
 
 

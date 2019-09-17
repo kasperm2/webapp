@@ -215,34 +215,32 @@ planRef.onSnapshot(function(snapshotData) {
 
 // Vis indhold i kort
 function appendMealplan(mealplan){
-  let htmlTemplate = "";
+  document.querySelector('#card-text4').innerHTML = "";
     for (let mad of mealplan) {
-      let usersTemplate = "";
-    for (let user of mad.data().users){
-      userRef.doc(user).get().then(function(doc) {
-
-      document.getElementById(mad.id) +=`
-     <img src="${doc.data().img}">
-     `;
-    });
-    }
-    htmlTemplate += `
-
+    document.querySelector('#card-text4').innerHTML += `
     <div class="aligments3">
     <p id="day-of-week">MANDAG 16/9</p>
     <h3 id="title-header">${mad.data().title}</h3>
     <p id="small-titles2">Personer</p>
-    <span id="${mad.id}"></span>
+    <span class="persons-card" id="users-${mad.id}"></span>
     <p id="small-titles2">Kommentare</p>
     <span id="kommentar-data">${mad.data().comment}</span>
     <a href="${mad.data().link}" class="waves-effect waves-light btn button-klar">SE OPSKRIFT</a>
-    <img src="${mad.data().img}" alt="mad">
+    <img id="retten-mad" src="${mad.data().img}" alt="mad">
     </div>
     `;
-
+    appendUserImages(mad.data().users, `#users-${mad.id}`)
   }
-
-  document.querySelector('#card-text4').innerHTML = htmlTemplate;
+}
+function appendUserImages(users, mealPlanId) {
+  document.querySelector(mealPlanId).innerHTML = "";
+   for (let user of users) {
+     userRef.doc(user).get().then(function(userDoc) {
+       document.querySelector(mealPlanId).innerHTML +=`
+       <img src="${userDoc.data().img}">
+       `;
+     });
+   }
 }
 
 
