@@ -65,7 +65,9 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const vareRef = db.collection("indkob");
 const planRef = db.collection("mealplan");
-//const imgRef = db.collection("images");
+const userRef = db.collection("users");
+let currentUser;
+
 
 // Firebase UI configuration
 const uiConfig = {
@@ -84,7 +86,8 @@ const ui = new firebaseui.auth.AuthUI(firebase.auth());
 // Listen on authentication state change
 firebase.auth().onAuthStateChanged(function(user) {
   let tabbar = document.querySelector('#tabbar2');
-  console.log(user);
+  currentUser = user;
+  console.log(currentUser);
   if (user) { // if user exists and is authenticated
     setDefaultPage();
     tabbar.classList.remove("hide");
@@ -100,26 +103,86 @@ firebase.auth().onAuthStateChanged(function(user) {
 // sign out user
 function logout() {
   firebase.auth().signOut();
+  // reset input fields
+  document.querySelector('#name').value = "";
+  document.querySelector('#mail').value = "";
+  document.querySelector('#birthdate').value = "";
+  document.querySelector('#phoneNumber').value = "";
+  document.querySelector('#imagePreview').src = "";
+}
+
+// append user data to profile page
+function appendUserData() {
+  // auth user
+  document.querySelector('#name').value = currentUser.displayName;
+  document.querySelector('#mail').value = currentUser.email;
+
+  // database user
+  userRef.doc(currentUser.uid).get().then(function(doc) {
+    let userData = doc.data();
+    console.log(userData);
+    if (userData) {
+      document.querySelector('#birthdate').value = userData.birthdate;
+      document.querySelector('#phoneNumber').value = userData.phoneNumber;
+      document.querySelector('#imagePreview').src = userData.img;
+    }
+  });
+}
+
+// update user data - auth user and database object
+function updateUser() {
+  let user = firebase.auth().currentUser;
+
+  // update auth user
+  user.updateProfile({
+    displayName: document.querySelector('#name').value
+  });
+
+  // update database user
+  userRef.doc(currentUser.uid).set({
+    img: eventImage,
+    name: document.querySelector('#name').value,
+    birthdate: document.querySelector('#birthdate').value,
+    phoneNumber: document.querySelector('#phoneNumber').value
+  }, {
+    merge: true
+  });
 }
 
 function appendUserData(user) {
-  document.querySelector('#profile').innerHTML += `
-    <h3>${user.displayName}</h3>
-    <p>${user.email}</p>
+  document.querySelector('#profil-info').innerHTML += `
+  <label for="name">Navn</label>
+  <input type="text" id="name" placeholder="${user.displayName}" required>
+  <label for="mail">Mail</label>
+  <input type="email" id="mail" placeholder="${user.email}" required>
+  <label for="birthdate">Fødselsdag</label>
+  <input type="text" id="birthdate" placeholder="${user.birthdate}" required>
+  <label for="phoneNumber">Telefonnummer</label>
+  <input type="text" id="phoneNumber" placeholder="${user.phoneNumber}" required>
+
+  <form action="#">
+    <div class="file-field upload-file6 input-field">
+      <div class="btn">
+        <span><i class="small material-icons">cloud_upload</i>Upload billede</span>
+        <input type="file" id="imagePreview" onchange="previewImage(this.files[0])">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    <a href="#" onclick="updateUser()" class="waves-effect right button-align skub waves-light btn">Opdater</a>
+  </form>
   `;
 }
 
-// Begyndelse af images funktion
+function appendMoreUserData(user) {
+  document.querySelector('#profile-image').innerHTML += `
+  <img src="${user.img}" alt="profil-billede">
+  <h1>${user.displayName}</h1>
+  `;
+  console.log(users);
+}
 
-//imgRef.onSnapshot(function(snapshotData) {
-  //let images = snapshotData.docs;
-  //appendMoreUserData(images);
-//});
-
-//function appendMoreUserData(images){
-  //document.querySelector('#profile-img').innerHTML +=`
-  //`;
-//};
 
 // Show date
 
@@ -218,6 +281,8 @@ let instances = M.Carousel.init(elems, options);
    var elems = document.querySelectorAll('select');
    var instances = M.FormSelect.init(elems);
  });
+
+ // Users login
 
 
  // ------- her begynder Indkøbs funktionen -------- //
