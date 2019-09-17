@@ -326,6 +326,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   border-radius: 50%;
   border: 1px solid white;
   width: 110px;
+  height: 110px;
 
 }
 
